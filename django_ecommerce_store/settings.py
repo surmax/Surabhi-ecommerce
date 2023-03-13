@@ -24,7 +24,7 @@ SECRET_KEY = '123'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','https://product.nicewater-56bb0a4b.eastus2.azurecontainerapps.io', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -84,10 +84,23 @@ WSGI_APPLICATION = 'django_ecommerce_store.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+  'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'dbadmin',
+        'PASSWORD': '@Dmin123',
+        'HOST': 'ecommdb.postgres.database.azure.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode' : 'require'
+        },
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 # Password validation

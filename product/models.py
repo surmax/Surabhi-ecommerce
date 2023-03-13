@@ -2,6 +2,7 @@ from io import BytesIO
 from PIL import Image
 
 from django.db import models
+from urllib import request
 from django.core.files import File
 
 
@@ -26,8 +27,9 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    image = models.URLField()
+    thumbnail = models.URLField()
+    # thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -44,12 +46,16 @@ class Product(models.Model):
 
     def get_image(self):
        # print ( )
-        print ( self.image.url)
-        print ('Current URL is '+'http://127.0.0.1:8000' + self.image.url)
+        print ( self.image)
+        print ('Current URL is '+ self.image)
         if self.image:
             #return  self.image.url
         
-           return 'http://127.0.0.1:8000' + self.image.url
+           #return 'http://127.0.0.1:8000' + self.image.url
+            #result = request.urlretrieve(self.image)
+            #print ('Result1 is -'+result)
+            return  self.image
+           
         else:
           return ''
 
@@ -57,12 +63,15 @@ class Product(models.Model):
 
     def get_thumbnail(self):
         if self.thumbnail:
-            return  'http://127.0.0.1:8000' +self.thumbnail.url
+            #return  'http://127.0.0.1:8000' +self.thumbnail.url
+            print ('Thumbnail url- '+(self.thumbnail))
+            return (self.thumbnail) #self.thumbnail.url
         else:
             if self.image:
                 self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
-                return  'http://127.0.0.1:8000' + self.thumbnail.url
+                #return  'http://127.0.0.1:8000' + self.thumbnail.url
+                return   self.thumbnail
                
             else:
                 return ''

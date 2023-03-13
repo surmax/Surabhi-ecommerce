@@ -80,8 +80,8 @@
     </section>
 
     <footer class="footer">
-      <p class="has-text-centered has-text-grey">Designed for NAGP purpose</p>
-      <p class="has-text-centered has-text-grey">2023</p>
+      <p class="has-text-centered has-text-grey">Designed for practice purpose</p>
+      <p class="has-text-centered has-text-grey">Afra © 2022</p>
     </footer>
   </div>
 </template>
