@@ -11,7 +11,7 @@
     <td><button class="delete has-background-danger" @click="removeFromCart(item)"></button></td>
   </tr>
 </template>
-
+  
 <script>
 export default {
   name: 'CartItem',
