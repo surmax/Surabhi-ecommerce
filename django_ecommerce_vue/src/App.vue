@@ -130,7 +130,7 @@ export  default {
       const msalConfig = {
         auth: {
           clientId: '129b8bc7-de59-4904-bad3-1268f299e8d0',
-          redirectUri: 'http://localhost:8080'//'https://ecommvue.z29.web.core.windows.net/',
+          redirectUri: 'http://localhost:8080',//'https://ecommvue.z29.web.core.windows.net/',
           authority: 'https://NAGPecommB2c.b2clogin.com/NAGPecommB2c.onmicrosoft.com/B2C_1_SignupSignin',
           knownAuthorities: ['NAGPecommB2c.b2clogin.com'],
           navigateToLoginRequestUrl: true
