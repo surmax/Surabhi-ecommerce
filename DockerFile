@@ -1,0 +1,28 @@
+# Base image
+FROM python:3.9
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY requirements.txt .
+
+# Install the requirements
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install unixodbc-dev for the libodbc.so.2 package which is required by azure odbc. 
+RUN apt-get update && apt-get install -y unixodbc-dev 
+
+#Install msodbcsql18 
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql18
+
+# Copy the application code
+COPY . .
+
+# Expose port 8000
+EXPOSE 8000
+
+# Start the application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
