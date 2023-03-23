@@ -1,7 +1,7 @@
 <template>
     <div class="column is-3">
         <div class="box has-background-dark">
-            <figure class="image mb-4">
+            <figure class="image mb-2">
                 <img v-bind:src="product.get_thumbnail">                 
             </figure>
 
@@ -27,5 +27,6 @@ export default {
     margin-top: -1.25rem;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
+    
   }
 </style>

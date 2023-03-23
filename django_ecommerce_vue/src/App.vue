@@ -4,7 +4,7 @@
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
           <img src="../public/boutique-logo.png" type="image" alt="logo">
-          <strong style="padding-left: 5px">  BOUTIQUE</strong>
+          <strong style="padding-left: 5px">  AMCART</strong>
         </router-link>
 
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
@@ -52,7 +52,7 @@
 
             <div class="navbar-item">
               <router-link to="/cart" class="button is-info">
-                <span>Cart ({{ cartTotalLength }})</span>
+                <span>Cart </span>
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
               </router-link>
             </div>
@@ -79,15 +79,16 @@
       <router-view/>
     </section>
 
-    <footer class="footer">
-      <p class="has-text-centered has-text-grey">Designed for practice purpose</p>
-      <p class="has-text-centered has-text-grey">Afra © 2022</p>
-    </footer>
+    <div class="site-wrap">
+     
+      <my-footer></my-footer>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Footer from './components/Footer';
 
 export  default {
   data() {
@@ -98,6 +99,17 @@ export  default {
       }
     }
   },
+
+  
+
+components:{
+ 
+    'my-footer':Footer
+},
+mounted () {
+ window.scrollTo(0, 0)
+},
+
   beforeCreate() {
     this.$store.commit('initializeStore')
 
@@ -126,7 +138,7 @@ export  default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/bulma';
+@import '../public/template/bulma';
 
 .lds-dual-ring {
   display: inline-block;

@@ -1,0 +1,10 @@
+[
+    [
+        { "id": 1, "img": "prod_2.png", "itemName": "Gray Shoe", "priceTag": "$20.00", "category": "shoes" },
+        { "id": 2, "img": "prod_3.png", "itemName": "Blue Shoe High Heels", "priceTag": "$46.00", "category": "shoes" },
+        { "id": 3, "img": "model_5.png", "itemName": "Denim Jacket", "priceTag": "$34.00", "category": "men" },
+        { "id": 4, "img": "prod_1.png", "itemName": "Leather Green Bag", "priceTag": "$37.00", "category": "woman" },
+        { "id": 5, "img": "model_1.png", "itemName": "Smooth Cloth", "priceTag": "$46.00", "category": "woman" },
+        { "id": 6, "img": "model_7.png", "itemName": "Yellow Jacket", "priceTag": "$54.00", "category": "men" }
+    ]
+]
